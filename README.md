@@ -11,7 +11,7 @@ For compiling you need to run the command as
 //for windows
 g++ -static file_name.cpp -o file_name.exe -I ../edith/include -L ../edith/lib -ledith -lws2_32
 ```
-For creating instance of Web Server and starting it
+For **creating instance** of Web Server and starting it
 ```cpp
 EdithWebServer server(5050);                  //Creating object
 server.onRequest("/addStudent",addStudent);   //mapping request with function
@@ -21,12 +21,12 @@ server.start();                               //Starting the server
 
 Whenever a request is arrived at server end, it checked that it is a client side resource or server side resource that means there has to be processing on server side or directly the resouce has to be served.
 
-Such as request arrived for a.jpeg (this is a client side resource, no processing is required) so directly contents of the resource are served.
+Such as request arrived for **a.jpeg** (this is a client side resource, no processing is required) so directly contents of the resource are served.
 
-Request arrived for /addStudent (this is a server side script, that needs to be processed) after processing, necessary actions are taken such as forwarding request to another resource or sending contents of response.
+Request arrived for **/addStudent** (this is a server side script, that needs to be processed) after processing, necessary actions are taken such as forwarding request to another resource or sending contents of response.
 
 ## Demonstration Of Request forwarding feature
-If application developer wants to forward the request to anyother resource (it can be server side or client side resource), he/she has to use forward() function.
+If application developer wants to forward the request to anyother resource (it can be server side or client side resource), he/she has to use **forward()** function.
 ```cpp
 void aaa(Request &request,Response &response)
 {
@@ -40,7 +40,7 @@ request.forward("bbb");
 This script contains code to add student's details (roll number and name to file using file handling) and get details of student.
 [serverscript.cpp](https://pip.pypa.io/en/stable/)
 
-These are the header files and namespaces that are required.
+These are the **header files** and **namespaces** that are required.
 ```cpp
 #include <edith>
 #include <iostream>
@@ -81,7 +81,7 @@ class Student
     }
 };
 ```
-This addStudent() function will fetch name and roll number from request string and will create a student object and will write it in a file named student.dat
+This **addStudent()** function will fetch name and roll number from request string and will create a student object and will write it in a file named **student.dat**
 
 ```cpp
 void addStudent(Request &request, Response &response)
@@ -108,7 +108,7 @@ void addStudent(Request &request, Response &response)
     response.closeConnection();
 }
 ```
-This getStudent() function will open file named student.dat and will create a HTML and will send it using write() function using response pointer.
+This **getStudent()** function will open file named **student.dat** and will create a HTML and will send it using **write()** function using **response pointer**.
 ```cpp
 void getStudent(Request &request, Response &response)
 {
@@ -146,14 +146,14 @@ void getStudent(Request &request, Response &response)
     response.closeConnection();
 }
 ```
-This aaa() function is used for demonstrating use of forwarding feature.
+This **aaa()** function is used for demonstrating use of forwarding feature.
 ```cpp
 void aaa(Request &request, Response &response)
 {
     request.forward("getStudent");
 }
 ```
-Main function where instance of EdithWebServer is created and request mappings are declared and server is started.
+Main function where **instance of EdithWebServer** is created and request mappings are declared and server is started.
 ```cpp
 int main()
 {
