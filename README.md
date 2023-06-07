@@ -105,7 +105,7 @@ void addStudent(Request &request, Response &response)
     response.write("<a href='/index.html'>Home</a>");
     response.write("</center></body>");
     response.write("</html>");
-    response.closeConnection();
+    response.close();
 }
 ```
 This **getStudent()** function will open file named **student.dat** and will create a HTML and will send it using **write()** function using **response pointer**.
