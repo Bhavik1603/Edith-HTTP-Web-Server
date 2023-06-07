@@ -1,0 +1,1 @@
+g++ -static myapp.cpp -o myapp.exe -I ..\edith\include -L ..\edith\lib -ledith -lws2_32
